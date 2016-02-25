@@ -1,0 +1,32 @@
+<?php
+
+namespace utilisateur\utilisateurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CategorieProjet
+ *
+ * @ORM\Table(name="categorie_projet")
+ * @ORM\Entity
+ */
+class CategorieProjet
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_CATEGORIE_PROJET", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCategorieProjet;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CATEGORIE", type="string", length=255, nullable=true)
+     */
+    private $categorie;
+
+
+}

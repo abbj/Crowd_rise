@@ -1,0 +1,66 @@
+<?php
+
+namespace utilisateur\utilisateurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Reclamation
+ *
+ * @ORM\Table(name="reclamation", indexes={@ORM\Index(name="FK_RELATIONSHIP_17", columns={"ID_CATEGORIE_RECLAMATION"}), @ORM\Index(name="FK_RELATIONSHIP_18", columns={"id"})})
+ * @ORM\Entity
+ */
+class Reclamation
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_RECLAMATION", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idReclamation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TITRE", type="string", length=255, nullable=true)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CONTENU", type="text", nullable=true)
+     */
+    private $contenu;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="NOTIFICATION", type="boolean", nullable=true)
+     */
+    private $notification;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * })
+     */
+    private $id;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\CategorieReclamation
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\CategorieReclamation")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_CATEGORIE_RECLAMATION", referencedColumnName="ID_CATEGORIE_RECLAMATION")
+     * })
+     */
+    private $idCategorieReclamation;
+
+
+}

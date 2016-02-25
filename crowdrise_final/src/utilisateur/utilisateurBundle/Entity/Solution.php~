@@ -1,0 +1,66 @@
+<?php
+
+namespace utilisateur\utilisateurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Solution
+ *
+ * @ORM\Table(name="solution", indexes={@ORM\Index(name="FK_RELATIONSHIP_10", columns={"id"}), @ORM\Index(name="FK_RELATIONSHIP_19", columns={"ID_PROBLEME_AGREGATION"})})
+ * @ORM\Entity
+ */
+class Solution
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_SOLUTION", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idSolution;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPTION", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\Probleme
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\Probleme")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_PROBLEME_AGREGATION", referencedColumnName="ID_PROBLEME")
+     * })
+     */
+    private $idProblemeAgregation;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * })
+     */
+    private $id;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="utilisateur\utilisateurBundle\Entity\Probleme", mappedBy="idSolution")
+     */
+    private $idProbleme;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idProbleme = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

@@ -1,0 +1,72 @@
+<?php
+
+namespace utilisateur\utilisateurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Commentaire
+ *
+ * @ORM\Table(name="commentaire", indexes={@ORM\Index(name="FK_RELATIONSHIP_1", columns={"ID_PROJET"}), @ORM\Index(name="FK_RELATIONSHIP_14", columns={"ID_EVENEMENT"}), @ORM\Index(name="FK_RELATIONSHIP_6", columns={"id"}), @ORM\Index(name="FK_RELATIONSHIP_9", columns={"ID_PROBLEME"})})
+ * @ORM\Entity
+ */
+class Commentaire
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_COMMENTAIRE", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCommentaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CONTENU", type="text", nullable=true)
+     */
+    private $contenu;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\Probleme
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\Probleme")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_PROBLEME", referencedColumnName="ID_PROBLEME")
+     * })
+     */
+    private $idProbleme;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\Projet
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\Projet")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_PROJET", referencedColumnName="ID_PROJET")
+     * })
+     */
+    private $idProjet;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\Evenement
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\Evenement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_EVENEMENT", referencedColumnName="ID_EVENEMENT")
+     * })
+     */
+    private $idEvenement;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * })
+     */
+    private $id;
+
+
+}

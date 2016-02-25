@@ -1,0 +1,92 @@
+<?php
+
+namespace utilisateur\utilisateurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Probleme
+ *
+ * @ORM\Table(name="probleme", indexes={@ORM\Index(name="FK_RELATIONSHIP_8", columns={"id"})})
+ * @ORM\Entity
+ */
+class Probleme
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_PROBLEME", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idProbleme;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPTION", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="BUDGET", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $budget;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="FICHIER", type="text", nullable=true)
+     */
+    private $fichier;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DATE_PUBLICATION", type="datetime", nullable=true)
+     */
+    private $datePublication;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TAUX_HORRAIRE", type="string", length=255, nullable=true)
+     */
+    private $tauxHorraire;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * })
+     */
+    private $id;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="utilisateur\utilisateurBundle\Entity\Solution", inversedBy="idProbleme")
+     * @ORM\JoinTable(name="payement",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="ID_PROBLEME", referencedColumnName="ID_PROBLEME")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="ID_SOLUTION", referencedColumnName="ID_SOLUTION")
+     *   }
+     * )
+     */
+    private $idSolution;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idSolution = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

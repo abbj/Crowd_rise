@@ -1,0 +1,46 @@
+acme_demo_product:
+    resource: "@AcmeDemoBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+
+_welcome:
+    path:     /
+    defaults: { _controller: AcmeDemoBundle:Welcome:index }
+
+_demo_secured:
+    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
+    type:     annotation
+
+_demo:
+    resource: "@AcmeDemoBundle/Controller/DemoController.php"
+    type:     annotation
+    prefix:   /demo
+product:
+    path:     /
+    defaults: { _controller: "AcmeDemoBundle:Product:index" }
+
+product_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeDemoBundle:Product:show" }
+
+product_new:
+    path:     /new
+    defaults: { _controller: "AcmeDemoBundle:Product:new" }
+
+product_create:
+    path:     /create
+    defaults: { _controller: "AcmeDemoBundle:Product:create" }
+    requirements: { _method: post }
+
+product_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeDemoBundle:Product:edit" }
+
+product_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeDemoBundle:Product:update" }
+    requirements: { _method: post|put }
+
+product_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeDemoBundle:Product:delete" }
+    requirements: { _method: post|delete }

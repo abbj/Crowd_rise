@@ -1,0 +1,30 @@
+projet:
+    path:     /
+    defaults: { _controller: "utilisateurBundle:Projet:index" }
+
+projet_show:
+    path:     /{id}/show
+    defaults: { _controller: "utilisateurBundle:Projet:show" }
+
+projet_new:
+    path:     /new
+    defaults: { _controller: "utilisateurBundle:Projet:new" }
+
+projet_create:
+    path:     /create
+    defaults: { _controller: "utilisateurBundle:Projet:create" }
+    requirements: { _method: post }
+
+projet_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "utilisateurBundle:Projet:edit" }
+
+projet_update:
+    path:     /{id}/update
+    defaults: { _controller: "utilisateurBundle:Projet:update" }
+    requirements: { _method: post|put }
+
+projet_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "utilisateurBundle:Projet:delete" }
+    requirements: { _method: post|delete }

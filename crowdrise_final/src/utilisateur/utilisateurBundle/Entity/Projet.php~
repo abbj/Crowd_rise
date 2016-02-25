@@ -1,0 +1,100 @@
+<?php
+
+namespace utilisateur\utilisateurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Projet
+ *
+ * @ORM\Table(name="projet", indexes={@ORM\Index(name="FK_RELATIONSHIP_2", columns={"ID_CATEGORIE_PROJET"}), @ORM\Index(name="FK_RELATIONSHIP_3", columns={"ID_INVESTISSEMENT"}), @ORM\Index(name="FK_RELATIONSHIP_4", columns={"id"}), @ORM\Index(name="FK_RELATIONSHIP_7", columns={"ID_TYPE"})})
+ * @ORM\Entity
+ */
+class Projet
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_PROJET", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idProjet;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOM_PROJET", type="string", length=255, nullable=true)
+     */
+    private $nomProjet;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RESUME", type="text", nullable=true)
+     */
+    private $resume;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IMAGE", type="text", nullable=true)
+     */
+    private $image;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="BUDJET", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $budjet;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="FICHIER", type="text", nullable=true)
+     */
+    private $fichier;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\TypeProjet
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\TypeProjet")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_TYPE", referencedColumnName="ID_TYPE")
+     * })
+     */
+    private $idType;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\CategorieProjet
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\CategorieProjet")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_CATEGORIE_PROJET", referencedColumnName="ID_CATEGORIE_PROJET")
+     * })
+     */
+    private $idCategorieProjet;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\Investissement
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\Investissement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_INVESTISSEMENT", referencedColumnName="ID_INVESTISSEMENT")
+     * })
+     */
+    private $idInvestissement;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * })
+     */
+    private $id;
+
+
+}

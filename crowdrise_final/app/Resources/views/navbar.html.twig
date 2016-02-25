@@ -1,0 +1,135 @@
+<!-- Navigation & Logo-->
+
+
+
+<div class="mainmenu-wrapper">
+    <div class="container">
+      
+
+        <div class="menuextras " >
+            <div class="extras">
+                <ul>
+                    
+                {#<li class="shopping-cart-items"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> <a href="page-shopping-cart.html"><b>3 items</b></a></li>#}
+               
+                       
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li><a href="{{path('fos_user_security_login')}}">Bonjour,{{ app.user.username }}</a></li>
+
+                        <li>
+
+                            <div class="dropdown choose-country">
+                                <a class="glyphicon glyphicon-user btn-xs  " data-toggle="dropdown" href="#">.PROFILE</a>
+                                <ul class="dropdown-menu nav-drop" role="menu">
+                                    <li role="menuitem"><a href="#"><img src="{{asset('img/flags/us.png')}}" alt="United States"> US</a></li>
+                                    <li role="menuitem"><a href="#"><img src="{{asset('img/flags/de.png')}}" alt="Germany"> DE</a></li>
+                                    <li role="menuitem"><a href="#"><img src="{{asset('img/flags/es.png')}}" alt="Spain"> ES</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+                    
+
+
+  <a type="button" class="btn-xs btn-default btn-danger " href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
+  <li>
+      <div class="dropdown choose-country">
+          <a class="#" data-toggle="dropdown" href="#"><img src="{{asset('img/flags/gb.png')}}" alt="Great Britain"> FR</a>
+          <ul class="dropdown-menu" role="menu">
+              <li role="menuitem"><a href="#"><img src="{{asset('img/flags/us.png')}}" alt="United States"> US</a></li>
+              
+          </ul>
+      </div>
+  </li>
+                    {% else %}             
+                        <li><a href="{{path('fos_user_security_login')}}">Se Connecte</a></li>
+                        <li><a href="{{path('fos_user_registration_register')}}">S'inscrire</a></li>
+{# barre de translation en mode connect et en mode non connecte #}
+                        <li>
+      <div class="dropdown choose-country">
+          <a class="#" data-toggle="dropdown" href="#"><img src="{{asset('img/flags/gb.png')}}" alt="Great Britain"> FR</a>
+          <ul class="dropdown-menu" role="menu">
+              <li role="menuitem"><a href="#"><img src="{{asset('img/flags/us.png')}}" alt="United States"> US</a></li>
+              
+          </ul>
+      </div>
+  </li>
+                    {% endif %}
+
+                   
+                </ul>
+            </div>
+        </div>
+        <nav id="mainmenu" class="mainmenu">
+            <ul>
+                <li class="logo-wrapper"><a href="index.html"><img src="{{asset('img/mPurpose-logo.png')}}" alt="Multipurpose Twitter Bootstrap Template"></a></li>
+                <li class="active">
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#">CrowdSourcing +</a>
+                    <div class="mainmenu-submenu">
+                        <div class="mainmenu-submenu-inner"> 
+                            <div>
+                                <h4>choix</h4>
+                                <ul>
+                                    <li><a href="">je veux travailler</a></li>
+                                    <li><a href="">je veux embaucher</a></li>
+                                </ul>
+
+                            </div>
+                            <div>
+                                <h4>notre forum </h4>
+                                <ul>
+                                    <li><a href="">
+                                            Visiter notre forum</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-submenu">
+                    <a href="#">evenement +</a>
+                    <div class="mainmenu-submenu">
+                        <div class="mainmenu-submenu-inner"> 
+                            <div>
+                                <h4>nos evenement</h4>
+                                <ul>
+                                    <li><a href="">detail de l'evenement</a></li>
+                                    <li><a href="">Calendrier des evenements</a></li>
+                                    <li><a href="">evenement a venir</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#">CrowdFunding +</a>
+                    <div class="mainmenu-submenu">
+                        <div class="mainmenu-submenu-inner"> 
+                            <div>
+                                <h4>nos projets financeé</h4>
+                                <ul>
+                                    <li><a href="">liste des projets</a></li>
+                                    <li><a href="">ajouter projets</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                </li>
+             
+                <li>
+                    <a href="">contact</a>
+                </li>
+
+
+
+            </ul>
+        </nav>
+    </div>
+</div>
+

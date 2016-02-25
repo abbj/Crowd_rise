@@ -1,0 +1,42 @@
+<?php
+
+namespace utilisateur\utilisateurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Investissement
+ *
+ * @ORM\Table(name="investissement", indexes={@ORM\Index(name="FK_RELATIONSHIP_5", columns={"id"})})
+ * @ORM\Entity
+ */
+class Investissement
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_INVESTISSEMENT", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idInvestissement;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="MONATANT", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $monatant;
+
+    /**
+     * @var \utilisateur\utilisateurBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="utilisateur\utilisateurBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * })
+     */
+    private $id;
+
+
+}

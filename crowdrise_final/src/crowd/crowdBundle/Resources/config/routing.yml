@@ -1,0 +1,22 @@
+acceuil:
+    path:     /acceuil
+    defaults: { _controller: crowdBundle:page:acceuil }
+List_projets:
+    path:     /List_projets
+    defaults: { _controller: crowdBundle:page:List_projets }
+detail_projets:
+    path:     /detail_projets   
+    defaults: { _controller: crowdBundle:page:detail_projets }
+    
+Calendrier_evenements:
+    path:     /Calendrier_evenements   
+    defaults: { _controller: crowdBundle:page:Calendrier_evenements }
+detail_evenement:
+    path:     /detail_evenement   
+    defaults: { _controller: crowdBundle:page:detail_evenement}
+contact:
+    path:     /contact   
+    defaults: { _controller: crowdBundle:page:contact}
+test:
+    path:     /test   
+    defaults: { _controller: crowdBundle:page:test}

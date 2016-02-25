@@ -1,0 +1,76 @@
+{# https://github.com/FriendsOfSymfony/FOSUserBundle/issues/1077#}
+{% extends "base.html.twig" %}
+{% block body %}
+    {% trans_default_domain 'FOSUserBundle' %}
+
+
+
+
+    <!-- Page Title -->
+    <div class="section section-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Register</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="basic-login">
+                        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
+    <div class="form-group" >
+ <label for="register-username"><i class="icon-user"></i> <b>Email</b></label>
+
+        {{ form_widget(form.email, { 'attr': {'class': 'form-control','id':'register-username', 'placeholder': 'form.email'|trans } }) }}
+        {{ form_errors(form.email) }}
+          </div>
+          
+          
+         <div class="form-group" >
+             <label for="register-username"><i class="icon-user"></i> <b>username</b></label>
+             {{ form_widget(form.username, { 'attr': {'class': 'form-control','id':'register-username','type':'text', 'placeholder': 'form.username'|trans } }) }}
+             {{ form_errors(form.username) }}
+             <div class="form-group" >             
+                 <label for="register-password"><i class="icon-lock"></i> <b>mot de passe</b></label>
+
+
+
+                 {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control','id':'register-password' , 'placeholder': 'form.password'|trans } }) }}
+                 {{ form_errors(form.plainPassword.first) }}
+             </div>
+             <div class="form-group" >
+                 <label for="register-password"><i class="icon-lock"></i> <b>repeter mot de passe</b></label>
+
+
+                 {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'id':'register-password2','placeholder': 'form.password_confirmation'|trans } }) }}
+                 {{ form_errors(form.plainPassword.second) }}
+             </div>
+             {{ form_rest(form) }}
+
+         </div>
+    <div>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="{{ 'registration.submit'|trans }}">
+    </div>
+</form>
+                      
+                    </div>
+                </div>
+                <div class="col-sm-6 col-sm-offset-1 social-login">
+                    <p>You can use your Facebook or Twitter for registration</p>
+                    <div class="social-login-buttons">
+                        <a href="#" class="btn-facebook-login">Use Facebook</a>
+                        <a href="#" class="btn-twitter-login">Use Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+{% endblock %}

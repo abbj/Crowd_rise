@@ -1,0 +1,69 @@
+utilisateur_user:
+    resource: "@utilisateurBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+utilisateur_message:
+    resource: "@utilisateurBundle/Resources/config/routing/message.yml"
+    prefix:   /message
+
+utilisateur_projet:
+    resource: "@utilisateurBundle/Resources/config/routing/projet.yml"
+    prefix:   /projet
+
+utilisateur_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: utilisateurBundle:Default:index }
+
+editinfo:
+    path:     /editinfo
+    defaults: { _controller: utilisateurBundle:Default:editinfo }
+mesprojet:
+    path:     /profile/mesprojet
+    defaults: { _controller: "utilisateurBundle:Projet:mesprojet" }
+statistique:
+    path:     /statistique
+    defaults: { _controller: "utilisateurBundle:statistique:chart" }
+utilisateurBundle_message:
+        resource: "@utilisateurBundle/Resources/config/routing/message.yml"
+        prefix:   /message
+
+mesMessage:
+    path:     /profile/mesMessage
+    defaults: { _controller: utilisateurBundle:Message:mesMessage }
+Repondre:   
+    path:     /profile/Repondre/{toUserId}
+    defaults: { _controller: utilisateurBundle:Message:Repondre }
+
+
+
+adminacceuil:
+    path:     /admin/adminacceuil
+    defaults: { _controller: utilisateurBundle:admin:adminacceuil }
+afficherUserAdmin:
+    path:     admin/afficherUserAdmin
+    defaults: { _controller: utilisateurBundle:admin:afficherUserAdmin }
+afficherProjetAdmin:
+    path:     admin/afficherProjetAdmin
+    defaults: { _controller: utilisateurBundle:admin:afficherProjetAdmin }
+    
+afficherUnProjetAdmin:
+    path:     /{id}/afficherUnProjetAdmin
+    defaults: { _controller: utilisateurBundle:admin:afficherUnProjetAdmin }
+afficherLesUtilisateur:
+    path:     /admin/afficherLesUtilisateur
+    defaults: { _controller: utilisateurBundle:admin:afficherLesUtilisateur }
+
+
+rc:
+    path:     /rc
+    defaults: { _controller: utilisateurBundle:User:rc }
+ajax:
+    path:     /ajax
+    defaults: { _controller: "utilisateurBundle:User:ajax" }
+    requirements: { _method: post }
+
+
+
+
+
+

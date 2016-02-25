@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {%block css %}
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<title>Londinium - premium responsive admin template by Eugene Kopyov</title>
+
+<link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('admin/css/londinium-theme.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('admin/css/styles.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('admin/css/icons.css')}}" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+           
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="{{asset('admin/js/plugins/charts/sparkline.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/uniform.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/select2.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/inputmask.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/autosize.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/inputlimit.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/listbox.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/multiselect.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/validate.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/tags.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/switch.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/uploader/plupload.full.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/uploader/plupload.queue.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/wysihtml5/wysihtml5.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/forms/wysihtml5/toolbar.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('admin/js/plugins/interface/daterangepicker.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/interface/fancybox.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/interface/moment.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/interface/jgrowl.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/interface/datatables.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/interface/colorpicker.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/interface/fullcalendar.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/interface/timepicker.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('admin/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/application.js')}}"></script>
+
+        {% endblock %}
+    </head>
+    <body>
+                      {% include '::admin/navbar.html.twig' %}
+                      
+
+        
+            
+	<!-- Page container -->
+ 	<div class="page-container">
+            {%include '::admin/sidebar.html.twig' %}
+            
+            <div class="page-content" >
+            <div class="page-header">
+				<div class="page-title">
+					<h3>Dashboard <small>Welcome {{ app.user.username }}</small></h3>
+				</div>
+
+				<div id="reportrange" class="range">
+					<div class="visible-xs header-element-toggle">
+						<a class="btn btn-primary btn-icon"><i class="icon-calendar"></i></a>
+					</div>
+					<div class="date-range"></div>
+					<span class="label label-danger">9</span>
+				</div>
+			</div>
+			<!-- /page header -->
+
+
+			<!-- Breadcrumbs line -->
+			<div class="breadcrumb-line">
+				<ul class="breadcrumb">
+					<li><a href="index.html">Home</a></li>
+					<li class="active">Dashboard</li>
+				</ul>
+
+				<div class="visible-xs breadcrumb-toggle">
+					<a class="btn btn-link btn-lg btn-icon" data-toggle="collapse" data-target=".breadcrumb-buttons"><i class="icon-menu2"></i></a>
+				</div>
+
+				<ul class="breadcrumb-buttons collapse">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search3"></i> <span>Search</span> <b class="caret"></b></a>
+						<div class="popup dropdown-menu dropdown-menu-right">
+							<div class="popup-header">
+								<a href="#" class="pull-left"><i class="icon-paragraph-justify"></i></a>
+								<span>Quick search</span>
+								<a href="#" class="pull-right"><i class="icon-new-tab"></i></a>
+							</div>
+							<form action="#" class="breadcrumb-search">
+								<input type="text" placeholder="Type and hit enter..." name="search" class="form-control autocomplete">
+								<div class="row">
+									<div class="col-xs-6">
+										<label class="radio">
+											<input type="radio" name="search-option" class="styled" checked="checked">
+											Everywhere
+										</label>
+										<label class="radio">
+											<input type="radio" name="search-option" class="styled">
+											Invoices
+										</label>
+									</div>
+
+									<div class="col-xs-6">
+										<label class="radio">
+											<input type="radio" name="search-option" class="styled">
+											Users
+										</label>
+										<label class="radio">
+											<input type="radio" name="search-option" class="styled">
+											Orders
+										</label>
+									</div>
+								</div>
+
+								<input type="submit" class="btn btn-block btn-success" value="Search">
+							</form>
+						</div>
+					</li>
+
+					<li class="language dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/flags/german.png" alt=""> <b class="caret"></b></a>
+						<ul class="dropdown-menu dropdown-menu-right icons-right">
+							<li><a href="#"><img src="images/flags/ukrainian.png" alt=""> Ukrainian</a></li>
+							<li class="active"><a href="#"><img src="images/flags/english.png" alt=""> English</a></li>
+							<li><a href="#"><img src="images/flags/spanish.png" alt=""> Spanish</a></li>
+							<li><a href="#"><img src="images/flags/german.png" alt=""> Option</a></li>
+							<li><a href="#"><img src="images/flags/hungarian.png" alt=""> Hungarian</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- /breadcrumbs line -->
+{% block body %}
+            {% endblock %}
+            
+    <div class="row">
+
+    </div>
+  
+
+            
+              {% include '::admin/footer.html.twig' %}
+        
+            </div>
+        
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </body>
+    
+        {% block javascripts %}
+        {% endblock %}
+            
+
+</html>
